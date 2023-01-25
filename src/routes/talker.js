@@ -18,7 +18,7 @@ routeTalker.get('/:id', async (req, res) => {
     const result = await readFile(pather);
     const speaker = result.find((q) => q.id === Number(id));
     if (!speaker) { 
-        res.status(404).json({ message: 'Pessoa palestrante não encontrada' });
+        return res.status(404).json({ message: 'Pessoa palestrante não encontrada' });
     }
     return res.status(202).json(speaker);   
 });
