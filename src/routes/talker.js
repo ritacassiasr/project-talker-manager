@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const readFile = require('../utils/readFile');
+const { readFile } = require('../utils');
 
 const routeTalker = express.Router();
 const pather = path.resolve('src', 'talker.json');

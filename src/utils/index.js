@@ -1,4 +1,5 @@
 const fs = require('fs/promises');
+const crypto = require('crypto');
 
 const readFile = async (path) => {
     try {
@@ -11,4 +12,9 @@ const readFile = async (path) => {
     }
 };
 
-module.exports = readFile;
+const generateToken = () => crypto.randomBytes(8).toString('hex');
+
+module.exports = {
+    readFile,
+    generateToken,
+};
