@@ -46,4 +46,37 @@ async (req, res) => {
     return res.status(201).json(speaker);
   });
 
+routeTalker.put('/:id', 
+tokenValidate,
+talkValidate,
+nameValidate, 
+ageValidate,  
+rateValidate,
+WatchedAtValidate,
+async (req, res) => {
+    let speaker = req.body;
+    const { id } = req.params;    
+    const data = await readFile(pather);
+
+    const newSpeaker = data.find((q) => {
+        if (q.id === Number(id)) { return { id: Number(id), ...speaker }; } 
+        return q;
+    });
+
+    speaker = { id: Number(id), ...speaker };
+
+    await writeData(newSpeaker, pather);
+    return res.status(201).json(speaker);
+  });
+
+  routeTalker.delete('/:id', tokenValidate, async (req, res) => {
+    const { id } = req.params;
+    const data = await readFile(pather);
+
+    const deleteId = data.filter((q) => q.id !== Number(id)); 
+
+    await writeData(deleteId, pather);
+    return res.status(204).json();
+  });
+
 module.exports = routeTalker;   
