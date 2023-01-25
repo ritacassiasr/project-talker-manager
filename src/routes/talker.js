@@ -1,6 +1,12 @@
 const express = require('express');
 const path = require('path');
-const { readFile } = require('../utils');
+const { readFile, writeData } = require('../utils');
+const { nameValidate, 
+    ageValidate, 
+    tokenValidate, 
+    rateValidate, 
+    talkValidate, 
+    WatchedAtValidate } = require('../middlewares/validates');
 
 const routeTalker = express.Router();
 const pather = path.resolve('src', 'talker.json');
@@ -22,5 +28,22 @@ routeTalker.get('/:id', async (req, res) => {
     }
     return res.status(202).json(speaker);   
 });
+
+routeTalker.post('/', 
+nameValidate, 
+ageValidate, 
+tokenValidate, 
+rateValidate,
+talkValidate,
+WatchedAtValidate,
+async (req, res) => {
+    const speaker = req.body;
+    const data = await readFile(pather);
+    speaker.id = data.length + 1;
+    data.push(speaker);
+    await writeData(data, pather);
+
+    return res.status(201).json(speaker);
+  });
 
 module.exports = routeTalker;   
