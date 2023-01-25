@@ -16,6 +16,7 @@ const generateToken = () => crypto.randomBytes(8).toString('hex');
 
 const writeData = async (data, path) => {
     try {
+      console.log(data);
       await fs.writeFile(path, JSON.stringify(data));
       return true;
     } catch (err) {
