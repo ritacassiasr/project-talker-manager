@@ -30,11 +30,9 @@ const tokenValidate = (req, res, next) => {
 
 const talkValidate = (req, res, next) => {
     const { talk } = req.body;
-    try {
-      if (!talk) throw new Error('O campo "talk" é obrigatório');
-    } catch (err) {
-      return res.status(400).json({ message: err.message });
-    }
+
+    if (!talk) return res.status(400).json({ message: 'O campo "talk" é obrigatório' });
+  
     next();
 };
 

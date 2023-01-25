@@ -30,11 +30,11 @@ routeTalker.get('/:id', async (req, res) => {
 });
 
 routeTalker.post('/', 
-nameValidate, 
-ageValidate, 
-tokenValidate, 
-rateValidate,
+tokenValidate,
 talkValidate,
+nameValidate, 
+ageValidate,  
+rateValidate,
 WatchedAtValidate,
 async (req, res) => {
     const speaker = req.body;
