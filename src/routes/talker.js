@@ -1,9 +1,8 @@
 const express = require('express');
 const path = require('path');
 const { readFile, writeData } = require('../utils');
-const { nameValidate, 
-    ageValidate, 
-    tokenValidate, 
+const { tokenValidate, nameValidate, 
+    ageValidate,
     rateValidate, 
     talkValidate, 
     WatchedAtValidate } = require('../middlewares/validates');
@@ -26,7 +25,19 @@ routeTalker.get('/:id', async (req, res) => {
     if (!speaker) { 
         return res.status(404).json({ message: 'Pessoa palestrante não encontrada' });
     }
-    return res.status(202).json(speaker);   
+    return res.status(200).json(speaker);   
+});
+
+routeTalker.get('/search',
+ tokenValidate, 
+ async (req, res) => {
+    const talker = await readFile(path);
+    const { q } = req.query;
+
+    const resultTalker = talker
+    .filter((talk) => talk.name.toLowerCase().includes(q.toLocaleLowerCase()));
+
+    return res.status(200).json(resultTalker);
 });
 
 routeTalker.post('/', 
@@ -58,14 +69,14 @@ async (req, res) => {
     const { id } = req.params;    
     const data = await readFile(pather);
 
-    const newSpeaker = data.find((q) => {
+    const setSpeaker = data.find((q) => {
         if (q.id === Number(id)) { return { id: Number(id), ...speaker }; } 
         return q;
     });
 
     speaker = { id: Number(id), ...speaker };
 
-    await writeData(newSpeaker, pather);
+    await writeData(setSpeaker, pather);
     return res.status(201).json(speaker);
   });
 
