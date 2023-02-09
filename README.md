@@ -35,7 +35,7 @@ Neste projeto, desenvolvi as seguintes habilidades:
 
 ## ⛏ Ferramentas
 
-`Node`, `Express`, `Middlewares, `Status Code`, `API RESTful`
+`Node`, `Express`, `Middlewares`, `Status Code`, `API RESTful`
 
 <br>
 
