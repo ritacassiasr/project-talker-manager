@@ -7,7 +7,7 @@ Desenvolvendo uma API de um CRUD (Create, Read, Update e Delete) de palestrantes
 <p align="center">
   <a href="#-habilidades">Habilidades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-ferramentas">Ferramentas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-problema-resolvido">Problema Resolvido</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-desenvolvimento">Desenvolvimento</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-acessando-repositório">Repositório</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
@@ -39,7 +39,7 @@ Neste projeto, desenvolvi as seguintes habilidades:
 
 <br>
 
-## 🧶 Problema resolvido
+## 🧶 Desenvolvimento
 
 Desenvolvimento de uma API de um CRUD (Create, Read, Update e Delete) de palestrantes, com a criação de alguns endpoints que irão ler e escrever em um arquivo, isso utilizando o módulo fs.
 
