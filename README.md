@@ -56,7 +56,7 @@ Clone o repositório
   * Instale as dependências:
     * `npm install`
   * Inicialize o projeto:
-    * `npm start` (uma nova página deve abrir no seu navegador com a lista de planetas)
+    * `npm start`
     * ⚠️ Lembrando que já deve se estar dentro da pasta do projeto `talker-manager`
 
 
